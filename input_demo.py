@@ -41,7 +41,6 @@ GPIO.add_event_callback(pin, my_callback)
 print("Now, we wait for an event!  Type Ctl+C to quit.")
 try:
     while True:
-        
         if GPIO.event_detected(pin):
             print("Hello, is it me you're looking for?")
             break 
