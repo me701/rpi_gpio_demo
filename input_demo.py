@@ -19,7 +19,7 @@ GPIO.setmode(GPIO.BCM)
 
 # Use GPIO 17, which is physical pin 11
 pin = 17
-GPIO.setup(pin, GPIO.IN)
+GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #Use internal pull down resistor so pin does not float
 
 start_time = time.time()
 elapsed_time = 0.0
@@ -32,7 +32,7 @@ while elapsed_time < 10:
     elapsed_time = time.time() - start_time
 
 
-def my_callback(channel):
+def my_callback(pin):
     print("Hello from the other sideeeeee")
 
 GPIO.add_event_detect(pin, GPIO.RISING)
